@@ -9,7 +9,26 @@ function showpopup(content)
 function hidepopup()
 {
     console.log("Hiding popup");
-    document.getElementById('popup').style.display = "none";} 
+    document.getElementById('popup').style.display = "none";
+}
+
+function zoomin()
+{
+    console.log("Zooming in");
+    document.getElementById('zoom-container').style.transform = "scale(1)";
+}
+
+function zoomout()
+{
+    console.log("Zooming out");
+    document.getElementById('zoom-container').style.transform = "scale(0)";
+}
+
+function closezoom()
+{
+    console.log("Closing zoom");
+    document.getElementById('zoom-container').style.display = "none";
+}
 
 var content1 = "<h1>Popup</h1><p>This is a popup</p>";
 var content2 = "<h1>Popup</h1><p>This is another popup</p>";

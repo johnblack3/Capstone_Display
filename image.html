@@ -20,6 +20,14 @@
             <p id = "popup-content" ></p>
             <span class = "close-btn" onclick = "hidepopup()">X</span>
             </div>  
+
+    <div id = "zoom-container">
+        <img src="pillbugsslugs01.jpg" alt="Zoom Image" id="zoom-img">
+        <span class = "close-btn" onclick = "closezoom()">X</span>
+
+        <div class = "point" style = "top: 300px; left: 300px;" onclick = "showpopup('content1'); zoomin()">1</div>
+        <div class = "point" style = "top: 400px; left: 400px;" onclick = "showpopup('content2'); zoomin()">2</div>
+    </div>
     <script src="imgscript.js"></script>
 </body>
 </html>
