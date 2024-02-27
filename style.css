@@ -1,7 +1,8 @@
-@font-face {
+/* @font-face {
     font-family: fa;
     src: url(fonts/roboto-regular.ttf);
-}
+    font-family: Arial, sans-serif;
+} */
 
 #image-container {
     position: relative;
@@ -9,8 +10,8 @@
 
 .point {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
     background-color: red;
     border-radius: 50%;
     color: white;
