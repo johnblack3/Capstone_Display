@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id = "image-container">
+        <img src="Picture1.png" alt="Interactive Image" id = "main-img">
+
+        <div class = "point" style = "top: 150px; left: 100px;" onclick = "showpopup(content1)">1</div>
+        <div class = "point" style = "top: 200px; left: 200px;" onclick = "showpopup(content2)">2</div>
+        </div>
+
+        <div id = "popup" class = "hidden">
+            <h2>Point Information</h2>
+            <p id = "popup-text">This is the information for the point</p>
+            <span class = "close-btn" onclick = "hidepopup()">X</span>
+            </div>  
+    <script src = "imgscript.js"></script>
+</body>
+</html>

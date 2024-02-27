@@ -1,0 +1,43 @@
+@font-face {
+    font-family: fa;
+    src: url(fonts/roboto-regular.ttf);
+}
+
+#image-container {
+    position: relative;
+}
+
+.point {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+#popup{
+    font-family: fa;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.close-btn {
+    cursor: pointer;
+    margin-top: 10px;
+}
