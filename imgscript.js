@@ -30,8 +30,8 @@ function closezoom()
     document.getElementById('zoom-container').style.display = "none";
 }
 
-var content1 = "<h1>Popup</h1><p>This is a popup</p>";
-var content2 = "<h1>Popup</h1><p>This is another popup</p>";
+var content1 = "<h1>Bug Name 1</h1><p>This is bug 1 information</p>";
+var content2 = "<h1>Bug Name 2</h1><p>This is bug 2 information</p>";
 
 // function showpopup() {
 //     // Get the popup element
