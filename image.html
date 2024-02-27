@@ -14,9 +14,12 @@
         <div class="point" style="top: 200px; left: 200px;" onclick="showpopup('2')">2</div>
     </div>
         <div id="popup" class="hidden" style="display: none">
-            <h2 id="popup-title"></h2>
+            <div style="display: flex; justify-content: space-between;">
+                <h2 id="popup-title"></h2>
+                <span class="close-btn" onclick="hidepopup()">X</span>
+            </div>
+            <image id="popup-image" src="images/crawfish.png"></image>
             <p id="popup-content" ></p>
-            <span class="close-btn" onclick="hidepopup()">X</span>
         </div>  
 
     <div id="zoom-container">
