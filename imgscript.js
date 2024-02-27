@@ -1,7 +1,14 @@
+const bugData = [
+    { name: "No Bugs!", information: "There are no bugs to see here. Please try another location!" },
+    { name: "Bug Name 1", information: "This is bug 1 information" },
+    { name: "Bug Name 2", information: "This is bug 2 information" },
+    // Add more bug objects as needed
+];
+
 function showpopup(content)
 {
-    document.getElementById('popup-title').innerHTML = "popup";
-    document.getElementById('popup-content').innerHTML = content;
+    document.getElementById('popup-title').innerHTML = bugData[content].name;
+    document.getElementById('popup-content').innerHTML = bugData[content].information;
     document.getElementById('popup').style.display = "block";
     document.getElementById('popup').classList.remove("hidden");
 }
@@ -28,9 +35,6 @@ function closezoom()
     console.log("Closing zoom");
     document.getElementById('zoom-container').style.display = "none";
 }
-
-var content1 = "<h1>Bug Name 1</h1><p>This is bug 1 information</p>";
-var content2 = "<h1>Bug Name 2</h1><p>This is bug 2 information</p>";
 
 // function showpopup() {
 //     // Get the popup element
