@@ -9,7 +9,25 @@ function showpopup(content)
 function hidepopup()
 {
     document.getElementById('popup').style.display = "none";
-} 
+}
+
+function zoomin()
+{
+    console.log("Zooming in");
+    document.getElementById('zoom-container').style.transform = "scale(1)";
+}
+
+function zoomout()
+{
+    console.log("Zooming out");
+    document.getElementById('zoom-container').style.transform = "scale(0)";
+}
+
+function closezoom()
+{
+    console.log("Closing zoom");
+    document.getElementById('zoom-container').style.display = "none";
+}
 
 var content1 = "<h1>Bug Name 1</h1><p>This is bug 1 information</p>";
 var content2 = "<h1>Bug Name 2</h1><p>This is bug 2 information</p>";
