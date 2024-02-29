@@ -2,11 +2,14 @@ const bugData = [
     { name: "No Bugs!", information: "There are no bugs to see here. Please try another location!" },
     { name: "Bug Name 1", image: "images/crawfish.png", information: "This is bug 1 information" },
     { name: "Bug Name 2", image: "images/crawfish1.png", information: "This is bug 2 information" },
+    { name: "Bug Name 3", image: "images/crawfish.png", information: "This is bug 3 information" },
+    { name: "Bug Name 4", image: "images/crawfish1.png", information: "This is bug 4 information" }
     // Add more bug objects as needed
 ];
 
 function showpopup(content)
 {
+    // check to make sure index is in list
     document.getElementById('popup-title').innerHTML = bugData[content].name;
     document.getElementById('popup-image').src = bugData[content].image;
     document.getElementById('popup-content').innerHTML = bugData[content].information;
