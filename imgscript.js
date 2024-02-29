@@ -16,7 +16,6 @@ function showpopup(content)
 
 function hidepopup()
 {
-    console.log("Hiding popup");
     document.getElementById('popup').style.display = "none";
 }
 
