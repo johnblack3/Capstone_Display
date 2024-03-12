@@ -4,8 +4,16 @@
     font-family: Arial, sans-serif;
 } */
 
+body {
+    margin: 0;
+}
+
 #image-container {
     position: relative;
+}
+
+#main-img {
+    width: 100%;
 }
 
 .point {
