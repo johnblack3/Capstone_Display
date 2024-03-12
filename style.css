@@ -19,6 +19,14 @@
     cursor: pointer;
 }
 
+.box{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
 #popup{
     font-family: fa;
     position: fixed;
