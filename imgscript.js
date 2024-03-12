@@ -3,7 +3,8 @@ const bugData = [
     { name: "Bug Name 1", image: "images/crawfish.png", information: "This is bug 1 information" },
     { name: "Bug Name 2", image: "images/crawfish1.png", information: "This is bug 2 information" },
     { name: "Bug Name 3", image: "images/crawfish.png", information: "This is bug 3 information" },
-    { name: "Bug Name 4", image: "images/crawfish1.png", information: "This is bug 4 information" }
+    { name: "Bug Name 4", image: "images/crawfish1.png", information: "This is bug 4 information" },
+    { name: "Bug Name 5", image: "pillbugsslugs01.jpg", information: "This is bug 5 information" },
     // Add more bug objects as needed
 ];
 
@@ -30,8 +31,9 @@ function zoomin()
 
 function showimage(content)
 {
-    document.getElementById('zoom-image').src = content;
+    document.getElementById('zoom-image').src = bugData[content].image;
 }
+
 function zoomout()
 {
     console.log("Zooming out");

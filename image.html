@@ -25,11 +25,13 @@
         </div>  
 
     <div id="zoom-container">
-        <img src="pillbugsslugs01.jpg" alt="Zoom Image" id="zoom-img">
-
-        <div class="box" style="top: 300px; left: 300px;" onclick="showimage('pillbugsslugs01.jpg'); zoomin()">1</div>
+        <div class="box" style="top: 300px; left: 300px;" onclick="showimage('5'); zoomin()">5</div>
         <span class="close-btn" onclick="closezoom()">X</span>
     </div>
+        <div id = "zoom" class="hidden" style="display: none">
+            <image id="zoom-img" src="pillbugsslugs01.jpg"></image>
+        </div>
+
     <script src="imgscript.js"></script>
 </body>
 </html>
