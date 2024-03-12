@@ -31,8 +31,9 @@ function zoomin()
 
 function showimage(content)
 {
-    document.getElementById('zoom-image').src = content;
+    document.getElementById('zoom-image').src = bugData[content].image;
 }
+
 function zoomout()
 {
     console.log("Zooming out");
