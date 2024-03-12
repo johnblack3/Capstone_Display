@@ -28,6 +28,10 @@ function zoomin()
     document.getElementById('zoom-container').style.transform = "scale(1)";
 }
 
+function showimage(content)
+{
+    document.getElementById('zoom-image').src = content;
+}
 function zoomout()
 {
     console.log("Zooming out");
