@@ -23,6 +23,46 @@ function hidepopup()
     document.getElementById('popup').style.display = "none";
 }
 
+// Not used yet
+function showquiz()
+{
+    document.getElementById('popup-content').innerHTML = createquiz();
+    document.getElementById('popup').style.display = "block";
+    document.getElementById('popup').classList.remove("hidden");
+}
+
+// Not used yet
+function createquiz()
+{
+    return `<div class="quiz-container">
+            <img src="images/crawfish.png" alt="Quiz Image" class="quiz-image">
+            <div class="answer-container">
+                <div class="answer-option" onclick="checkAnswer(1)">Crawfish</div>
+                <div class="answer-option" onclick="checkAnswer(2)">Mayfly Nymph</div>
+                <div class="answer-option" onclick="checkAnswer(3)">Water Mite</div>
+                <div class="answer-option" onclick="checkAnswer(4)">Water</div>
+            </div>
+        </div>`
+}
+
+function checkAnswer(selectedOption) {
+    // Implement logic to check the selected answer
+    console.log(`Selected option: ${selectedOption}`);
+    if (selectedOption == '1'){
+        // var elements = document.getElementsByClassName('answer-option');
+        // for (var i = 0; i < elements.length; i++) {
+        //     elements[i].style.backgroundColor = '#3498db';
+        // }
+        document.getElementById('ans1').style.backgroundColor = 'green';
+    } else {
+        // var elements = document.getElementsByClassName('answer-option');
+        // for (var i = 0; i < elements.length; i++) {
+        //     elements[i].style.backgroundColor = '#3498db';
+        // }
+        document.getElementById('ans' + selectedOption).style.backgroundColor = 'red'
+    }
+}
+
 function createInformationHtml(inputString) {
     // Split the input string by periods to get an array of sentences
     const sentences = inputString.split('.').filter(sentence => sentence.trim() !== '');

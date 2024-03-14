@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>Test your knowledge!</h1>
-    <div class ="question" data-answer = "this one"> 
+    <div class ="question" data-answer = "this one">  -->
         <!-- Add questions and answers later but this is basic functionality-->
-        <p>Question 1: What is the blah blah of blah blah?</p> 
+        <!-- <p>Question 1: What is the blah blah of blah blah?</p> 
         <label>
             <input type = "radio" name = "q1" value = "this one">This one
         </label>
@@ -20,5 +20,28 @@
         <span class = "feedback"></span>
     </div>
     <script src="quizscript.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quiz.css">
+    <title>Quiz</title>
+</head>
+<body>
+    <div class="quiz-container">
+        <img src="images/crawfish.png" alt="Quiz Image" class="quiz-image">
+        <div class="answer-container">
+            <div id="ans1" class="answer-option" onclick="checkAnswer(1)">Crawfish</div>
+            <div id="ans2" class="answer-option" onclick="checkAnswer(2)">Mayfly Nymph</div>
+            <div id="ans3" class="answer-option" onclick="checkAnswer(3)">Water Mite</div>
+            <div id="ans4" class="answer-option" onclick="checkAnswer(4)">Water Beetle</div>
+        </div>
+        <a href = "image.html" class="back-button">Home</a>
+    </div>
+    <script src="imgscript.js"></script>
 </body>
 </html>
