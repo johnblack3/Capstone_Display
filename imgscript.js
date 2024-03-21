@@ -1,3 +1,6 @@
+let currentQuest = 1;
+const totalQuest = document.querySelectorAll('.question').length;
+
 const bugData = [
     { name: "No Bugs!", information: "There are no bugs to see here. Please try another location!" },
     { name: "Crawfish", image: "images/SCEC_crayfish.jpeg", information: "Crawfish can shed (molt) their shells up to 15 times and they double in size with each molt. Crawfish are also called crawdads, crayfish and mudbugs. Crawfish can live up to 30 years in the wild. Crawfish can drown without access to fresh air. Crawfish walk forward and swim backward." },
@@ -88,6 +91,30 @@ function createquiz() {
     
     return quizHTML;
 }
+/*
+function goBack()
+{
+    if (currentQuest > 1) {
+        currentQuest--;
+        updateProgress()
+    }
+}
+
+function nextQuestion() 
+{
+    if (currentQuest < totalQuest) {
+        currentQuest++;
+        updateProgress()
+    }
+}
+
+function updateProgress()
+{
+    const progressBar = document.getElementById('progressBar');
+    const progress = (currentQuest / totalQuest) * 100;
+    progressBar.style.width = '${progress}%';
+}
+*/
 
 function checkAnswer(selectedOption, correctOption) {
     // Implement logic to check the selected answer
