@@ -1,3 +1,6 @@
+let currentQuest = 1;
+const totalQuest = document.querySelectorAll('.question').length;
+
 const bugData = [
     { name: "No Bugs!", information: "There are no bugs to see here. Please try another location!" },
     { name: "Dragonfly", image: "images/dragonfly.png", information: "Modern dragonflies have wingspans of about two to five inches. Dragonflies undergo incomplete metamorphosis, including three stages of development (egg, larva and adult). Having a dragonfly land on your head is considered good luck. Their muscles are attached directly to their wings which allows them to fly faster than other insects. They are one of the most accurate hunters as they can fly forward, backward, and upside-down." },
@@ -44,6 +47,30 @@ function createquiz()
             </div>
         </div>`
 }
+/*
+function goBack()
+{
+    if (currentQuest > 1) {
+        currentQuest--;
+        updateProgress()
+    }
+}
+
+function nextQuestion() 
+{
+    if (currentQuest < totalQuest) {
+        currentQuest++;
+        updateProgress()
+    }
+}
+
+function updateProgress()
+{
+    const progressBar = document.getElementById('progressBar');
+    const progress = (currentQuest / totalQuest) * 100;
+    progressBar.style.width = '${progress}%';
+}
+*/
 
 function checkAnswer(selectedOption) {
     // Implement logic to check the selected answer

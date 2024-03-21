@@ -34,12 +34,30 @@
 </head>
 <body>
     <div class="quiz-container">
+        <div class = "question">
         <img src="images/crawfish.png" alt="Quiz Image" class="quiz-image">
         <div class="answer-container">
             <div id="ans1" class="answer-option" onclick="checkAnswer(1)">Crawfish</div>
             <div id="ans2" class="answer-option" onclick="checkAnswer(2)">Mayfly Nymph</div>
             <div id="ans3" class="answer-option" onclick="checkAnswer(3)">Water Mite</div>
             <div id="ans4" class="answer-option" onclick="checkAnswer(4)">Water Beetle</div>
+        </div>
+        </div>
+        <!--<div class = "question">
+            <text>Question 2: What is the name of this insect with blah blah?</text>
+            <div class="answer-container">
+                <div id="ans1" class="answer-option" onclick="checkAnswer(1)">Crawfish</div>
+                <div id="ans2" class="answer-option" onclick="checkAnswer(2)">Mayfly Nymph</div>
+                <div id="ans3" class="answer-option" onclick="checkAnswer(3)">Water Mite</div>
+                <div id="ans4" class="answer-option" onclick="checkAnswer(4)">Water Beetle</div>
+            </div>
+        </div>-->
+        <div class = "nav-buttons">
+            <button id="next-button" class="nav-button" onclick="nextQuestion()">Next</button>
+            <button id ="prev-button" class="nav-button" onclick="goBack()">Previous</button>
+        </div>
+        <div class = "progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
         </div>
         <a href = "image.html" class="back-button">Home</a>
     </div>
