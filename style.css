@@ -28,7 +28,7 @@ body {
 }
 
 .point {
-    position: absolute;
+    position: fixed; /* Not sure if this is right */
     width: 25px;
     height: 25px;
     background-color: red;
@@ -93,6 +93,7 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-height: 400px;
 }
 
 #popup-title{
@@ -158,4 +159,43 @@ body {
    
    .gg-close::after {
     transform: rotate(-45deg)
-   } 
+   }
+
+   .quiz-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.answer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.answer-option {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.answer-option:hover {
+    background-color: #2077b4;
+}
+
+.back-button{
+    position: absolute; /* Or 'fixed' if you want it to stay in place while scrolling */
+    right: 20px;
+    bottom: 20px; /* Adjust as needed for your layout */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}

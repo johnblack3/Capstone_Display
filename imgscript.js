@@ -1,9 +1,11 @@
 const bugData = [
     { name: "No Bugs!", information: "There are no bugs to see here. Please try another location!" },
+    { name: "Crawfish", image: "images/SCEC_crayfish.jpeg", information: "Crawfish can shed (molt) their shells up to 15 times and they double in size with each molt. Crawfish are also called crawdads, crayfish and mudbugs. Crawfish can live up to 30 years in the wild. Crawfish can drown without access to fresh air. Crawfish walk forward and swim backward." },
+    { name: "Mayfly Larva", image: "images/SCEC_mayfly_larva.jpeg", information: "Mayflies have been around for more than 300 million years. Can only live in clean water and good habitat. They eat tiny living plants and tiny pieces of dead plants and animals. Mayflies live underwater in streams for most of their lives (as larvae). Transform into adult insects that are able to fly."},
+    { name: "Stonefly Larva", image: "images/SCEC_stonefly_larva.jpeg", information: "The stonefly ranges in size from 6 to more than 60 mm (1/4 to 3 inches). Each female may produce as many as 6,000 eggs, which are dropped in masses into a stream. Feed on plants, decaying organic matter, and other insects. Important biotic indicators of water quality. The nymphal stage lasts from one to four years, and the adults live several weeks."},
     { name: "Dragonfly", image: "images/dragonfly.png", information: "Modern dragonflies have wingspans of about two to five inches. Dragonflies undergo incomplete metamorphosis, including three stages of development (egg, larva and adult). Having a dragonfly land on your head is considered good luck. Their muscles are attached directly to their wings which allows them to fly faster than other insects. They are one of the most accurate hunters as they can fly forward, backward, and upside-down." },
     { name: "Backswimmer", image: "images/Backswimmer.png", information: "Name is given to them because they swim on their backs. Eats aquatic plants and small aquatic insects. Usually complete their lifecycle in 6 months. They have the ability to shoot out of water at once and start flying. There are about 125 species in North America." },
-    { name: "Leech", image: "images/leech.png", information: "Has 10 pairs of eyes. They live for about 10 years. Leeches are usually between ½ inch to 18 inches. Live in freshwater ponds and lakes. Not all leeches suck blood. Surgeons keep them on hand in the operating room and use them as mini vacuums to clean up blood." },
-    { name: "Crawfish", image: "images/crawfish.png", information: "Crawfish can shed (molt) their shells up to 15 times and they double in size with each molt. Crawfish are also called crawdads, crayfish and mudbugs. Crawfish can live up to 30 years in the wild. Crawfish can drown without access to fresh air. Crawfish walk forward and swim backward." }
+    { name: "Leech", image: "images/leech.png", information: "Has 10 pairs of eyes. They live for about 10 years. Leeches are usually between ½ inch to 18 inches. Live in freshwater ponds and lakes. Not all leeches suck blood. Surgeons keep them on hand in the operating room and use them as mini vacuums to clean up blood." }
     // Add more bug objects as needed
 ];
 
@@ -14,46 +16,88 @@ function showpopup(content)
     document.getElementById('popup-title').innerHTML = bug.name;
     document.getElementById('popup-image').src = bug.image;
     document.getElementById('popup-content').innerHTML = createInformationHtml(bug.information);
-    document.getElementById('popup').style.display = "block";
-    document.getElementById('popup').classList.remove("hidden");
+    var popup = document.getElementById('popup')
+    popup.style.display = "block";
+    popup.classList.remove("hidden");
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('main-img')) {
+            popup.style.display = "none";
+        }
+    }
 }
 
 function hidepopup()
 {
+    document.getElementById('popup-image').src = '';
     document.getElementById('popup').style.display = "none";
 }
 
 // Not used yet
 function showquiz()
 {
+    console.log("showquiz");
     document.getElementById('popup-content').innerHTML = createquiz();
     document.getElementById('popup').style.display = "block";
     document.getElementById('popup').classList.remove("hidden");
 }
 
 // Not used yet
-function createquiz()
-{
-    return `<div class="quiz-container">
-            <img src="images/crawfish.png" alt="Quiz Image" class="quiz-image">
-            <div class="answer-container">
-                <div class="answer-option" onclick="checkAnswer(1)">Crawfish</div>
-                <div class="answer-option" onclick="checkAnswer(2)">Mayfly Nymph</div>
-                <div class="answer-option" onclick="checkAnswer(3)">Water Mite</div>
-                <div class="answer-option" onclick="checkAnswer(4)">Water</div>
-            </div>
-        </div>`
+// function createquiz()
+// {
+//     return `<div class="quiz-container">
+//             <img src="images/crawfish.png" alt="Quiz Image" class="quiz-image">
+//             <div class="answer-container">
+//                 <div class="answer-option" onclick="checkAnswer(1)">Crawfish</div>
+//                 <div class="answer-option" onclick="checkAnswer(2)">Mayfly Nymph</div>
+//                 <div class="answer-option" onclick="checkAnswer(3)">Water Mite</div>
+//                 <div class="answer-option" onclick="checkAnswer(4)">Water</div>
+//             </div>
+//         </div>`
+// }
+
+function createquiz() {
+    // Select a random bug from bugData
+    const randomBugIndex = Math.floor(Math.random() * (bugData.length - 1)) + 1; // Exclude the first item ("No Bugs!")
+    const selectedBug = bugData[randomBugIndex];
+
+    // Generate HTML for the quiz with the selected bug
+    let quizHTML = `<div class="quiz-container">
+                        <img src="${selectedBug.image}" alt="Quiz Image" class="quiz-image">
+                        <div class="answer-container">`;
+
+    // Generate answer options
+    const correctAnswerIndex = Math.floor(Math.random() * 4) + 1; // Randomize the position of the correct answer
+    const uniqueBugIndices = [randomBugIndex]; // Array to store indices of unique bugs
+    for (let i = 1; i <= 4; i++) {
+        let bugIndex;
+        if (i === correctAnswerIndex) {
+            bugIndex = randomBugIndex;
+        } else {
+            // Select a random bug index that is not already chosen
+            do {
+                bugIndex = Math.floor(Math.random() * (bugData.length - 1)) + 1;
+            } while (uniqueBugIndices.includes(bugIndex));
+        }
+        uniqueBugIndices.push(bugIndex);
+        quizHTML += `<div id="ans${i}" class="answer-option" onclick="checkAnswer(${i}, ${correctAnswerIndex})">${bugData[bugIndex].name}</div>`;
+    }
+
+    // Close the answer container and quiz container
+    quizHTML += `</div></div>`;
+    
+    return quizHTML;
 }
 
-function checkAnswer(selectedOption) {
+function checkAnswer(selectedOption, correctOption) {
     // Implement logic to check the selected answer
     console.log(`Selected option: ${selectedOption}`);
-    if (selectedOption == '1'){
+    if (selectedOption == correctOption){
         // var elements = document.getElementsByClassName('answer-option');
         // for (var i = 0; i < elements.length; i++) {
         //     elements[i].style.backgroundColor = '#3498db';
         // }
-        document.getElementById('ans1').style.backgroundColor = 'green';
+        document.getElementById('ans' + selectedOption).style.backgroundColor = 'green';
     } else {
         // var elements = document.getElementsByClassName('answer-option');
         // for (var i = 0; i < elements.length; i++) {
