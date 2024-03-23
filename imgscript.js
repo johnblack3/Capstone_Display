@@ -139,7 +139,7 @@ function createInformationHtml(inputString) {
     const sentences = inputString.split('.').filter(sentence => sentence.trim() !== '');
 
     // Start the unordered list
-    let informationHtml = '<ul>';
+    let informationHtml = '<ul style="padding-right: 40px;">';
 
     // Loop through the sentences and add each as a list item
     sentences.forEach(sentence => {

@@ -29,8 +29,8 @@ body {
 
 .point {
     position: fixed; /* Not sure if this is right */
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     background-color: red;
     border-radius: 50%;
     color: white;
@@ -39,6 +39,8 @@ body {
     display: flex; /* Enables flexbox layout */
     justify-content: center; /* Centers content horizontally in the flex container */
     align-items: center; /* Centers content vertically in the flex container */
+    font-size: 30px;
+    font-family: Arial;
 }
 
 .box {
@@ -59,6 +61,8 @@ body {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 25px;
+    font-family: Arial;
 }
 
 .home-button{
@@ -80,14 +84,16 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
-    background-color: #83bfff;
+    /* color: #fff;
+    background-color: #83bfff; */
+    background-color: white;
     padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    font-family: Arial;
 }
 
 #popup-image{
