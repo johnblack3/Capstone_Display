@@ -10,20 +10,23 @@
 <body>
     <div id="image-container">
         <img src="images\creek.jpg" alt="Interactive Image" id="main-img">
-        <div class="point" style="top: 70%; left: 25%;" onclick="showpopup('1')">1</div>
-        <div class="point" style="top: 75%; left: 39%;" onclick="showpopup('2')">2</div>
-        <div class="point" style="top: 65%; left: 51%;" onclick="showpopup('3')">3</div>
-        <div class="point" style="top: 60%; left: 65%;" onclick="showpopup('4')">4</div>
-        <div class="point" style="top: 85%; left: 58%;" onclick="showpopup('5')">5</div>
+        <div class="point" style="top: 80%; left: 15%;" onclick="showpopup('1')">1</div>
+        <div class="point" style="top: 70%; left: 25%;" onclick="showpopup('2')">2</div>
+        <div class="point" style="top: 75%; left: 39%;" onclick="showpopup('3')">3</div>
+        <div class="point" style="top: 65%; left: 51%;" onclick="showpopup('4')">4</div>
+        <div class="point" style="top: 60%; left: 65%;" onclick="showpopup('5')">5</div>
+        <div class="point" style="top: 85%; left: 58%;" onclick="showpopup('6')">6</div>
     </div>
-        <div id="popup" class="hidden" style="display: none">
-            <div style="display: flex; justify-content: space-between;">
-                <h2 id="popup-title"></h2>
-                <span class="gg-close" onclick="hidepopup()"></span>
-            </div>
-            <image id="popup-image"></image>
-            <p id="popup-content" ></p>
-        </div>  
+    <div id="popup" class="hidden" style="display: none">
+        <div id="back-arrow" class="nav-arrow left-arrow" onclick="goBack()">&#10094;</div> <!-- Unicode for left-pointing arrow -->
+        <div id="next-arrow" class="nav-arrow right-arrow" onclick="nextQuestion()">&#10095;</div> <!-- Unicode for right-pointing arrow -->
+        <div style="display: flex; justify-content: space-between;">
+            <h2 id="popup-title"></h2>
+            <span class="gg-close" onclick="hidepopup()"></span>
+        </div>
+        <image id="popup-image"></image>
+        <p id="popup-content" ></p>
+    </div>
 
     <div id="zoom-container">
         <div class="box" style="top: 300px; left: 300px;" onclick="showimage('5'); zoomin()">5</div>

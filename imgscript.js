@@ -12,10 +12,11 @@ const bugData = [
     // Add more bug objects as needed
 ];
 
+//Shows popup of bug information
 function showpopup(content)
 {
     const bug = bugData[content];
-    // check to make sure index is in list
+    // Need to check to make sure index is in list
     document.getElementById('popup-title').innerHTML = bug.name;
     document.getElementById('popup-image').src = bug.image;
     document.getElementById('popup-content').innerHTML = createInformationHtml(bug.information);
@@ -40,24 +41,13 @@ function hidepopup()
 function showquiz()
 {
     console.log("showquiz");
+    document.getElementById('popup-title').innerHTML = "What is this bug?";
     document.getElementById('popup-content').innerHTML = createquiz();
     document.getElementById('popup').style.display = "block";
     document.getElementById('popup').classList.remove("hidden");
 }
 
-// Not used yet
-// function createquiz()
-// {
-//     return `<div class="quiz-container">
-//             <img src="images/crawfish.png" alt="Quiz Image" class="quiz-image">
-//             <div class="answer-container">
-//                 <div class="answer-option" onclick="checkAnswer(1)">Crawfish</div>
-//                 <div class="answer-option" onclick="checkAnswer(2)">Mayfly Nymph</div>
-//                 <div class="answer-option" onclick="checkAnswer(3)">Water Mite</div>
-//                 <div class="answer-option" onclick="checkAnswer(4)">Water</div>
-//             </div>
-//         </div>`
-// }
+let currentQuestionIndex = 0;
 
 function createquiz() {
     // Select a random bug from bugData
@@ -66,7 +56,7 @@ function createquiz() {
 
     // Generate HTML for the quiz with the selected bug
     let quizHTML = `<div class="quiz-container">
-                        <img src="${selectedBug.image}" alt="Quiz Image" class="quiz-image">
+                        <img id="popup-image" src="${selectedBug.image}" alt="Quiz Image" class="quiz-image">
                         <div class="answer-container">`;
 
     // Generate answer options
@@ -88,8 +78,36 @@ function createquiz() {
 
     // Close the answer container and quiz container
     quizHTML += `</div></div>`;
+
+    // Generate HTML for the next button
+    const nextButtonHTML = `
+        <div class="next-button-container">
+            <button onclick="nextQuestion()">Next Question</button>
+        </div>
+    `;
+
+    // Return the combined HTML for the quiz and the next button
+    return quizHTML + nextButtonHTML;
     
-    return quizHTML;
+    // return quizHTML;
+}
+
+function nextQuestion() {
+    // Increment the current question index
+    currentQuestionIndex++;
+
+    // Regenerate the quiz with the next question
+    document.getElementById('popup-content').innerHTML = createquiz();
+}
+
+function goBack() {
+    console.log(currentQuestionIndex);
+    if(currentQuestionIndex > 0){
+        // Don't go back
+        currentQuestionIndex--;
+        document.getElementById('popup-content').innerHTML = createquiz();
+    }
+    
 }
 /*
 function goBack()

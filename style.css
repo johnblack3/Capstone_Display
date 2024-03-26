@@ -94,6 +94,7 @@ body {
     align-items: center;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     font-family: Arial;
+    max-height: 90%;
 }
 
 #popup-image{
@@ -182,7 +183,7 @@ body {
 .answer-option {
     background-color: #3498db;
     color: #fff;
-    padding: 20px;
+    padding: 15px;
     margin: 10px;
     border-radius: 8px;
     cursor: pointer;
@@ -205,4 +206,24 @@ body {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+    color: #333; /* Or any color you prefer */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    border-radius: 50%; /* Optional: makes it circular */
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
 }
