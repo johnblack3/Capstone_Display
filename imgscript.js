@@ -1,5 +1,7 @@
 let currentQuest = 1;
 const totalQuest = document.querySelectorAll('.question').length;
+let quizMode = false;
+let currentPopupIndex = 0;
 
 const bugData = [
     { name: "No Bugs!", information: "There are no bugs to see here. Please try another location!" },
@@ -15,6 +17,8 @@ const bugData = [
 //Shows popup of bug information
 function showpopup(content)
 {
+    quizMode = false;
+    currentPopupIndex = content;
     const bug = bugData[content];
     // Need to check to make sure index is in list
     document.getElementById('popup-title').innerHTML = bug.name;
@@ -37,19 +41,23 @@ function hidepopup()
     document.getElementById('popup').style.display = "none";
 }
 
-// Not used yet
+// Show popup quiz
 function showquiz()
 {
-    console.log("showquiz");
+    quizMode = true;
     document.getElementById('popup-title').innerHTML = "What is this bug?";
+    document.getElementById('popup-image').src = "";
     document.getElementById('popup-content').innerHTML = createquiz();
     document.getElementById('popup').style.display = "block";
     document.getElementById('popup').classList.remove("hidden");
 }
 
 let currentQuestionIndex = 0;
+let previousQuestions = [] // {index, selected}
 
+// Create popup quiz
 function createquiz() {
+    console.log(previousQuestions);
     // Select a random bug from bugData
     const randomBugIndex = Math.floor(Math.random() * (bugData.length - 1)) + 1; // Exclude the first item ("No Bugs!")
     const selectedBug = bugData[randomBugIndex];
@@ -79,60 +87,48 @@ function createquiz() {
     // Close the answer container and quiz container
     quizHTML += `</div></div>`;
 
-    // Generate HTML for the next button
-    const nextButtonHTML = `
-        <div class="next-button-container">
-            <button onclick="nextQuestion()">Next Question</button>
-        </div>
-    `;
+    // previousQuestions[currentQuestionIndex] = {index: randomBugIndex}
 
     // Return the combined HTML for the quiz and the next button
-    return quizHTML + nextButtonHTML;
+    return quizHTML;
     
     // return quizHTML;
 }
 
 function nextQuestion() {
-    // Increment the current question index
-    currentQuestionIndex++;
+    if (quizMode){
+        // Increment the current question index
+        currentQuestionIndex++;
 
-    // Regenerate the quiz with the next question
-    document.getElementById('popup-content').innerHTML = createquiz();
-}
-
-function goBack() {
-    console.log(currentQuestionIndex);
-    if(currentQuestionIndex > 0){
-        // Don't go back
-        currentQuestionIndex--;
+        // Regenerate the quiz with the next question
         document.getElementById('popup-content').innerHTML = createquiz();
+    } else {
+        if (currentPopupIndex == bugData.length - 1){
+            currentPopupIndex = 1;
+        } else {
+            currentPopupIndex++;
+        }
+        showpopup(currentPopupIndex);
     }
     
 }
-/*
-function goBack()
-{
-    if (currentQuest > 1) {
-        currentQuest--;
-        updateProgress()
-    }
-}
 
-function nextQuestion() 
-{
-    if (currentQuest < totalQuest) {
-        currentQuest++;
-        updateProgress()
+function goBack() {
+    if (quizMode){
+        if(currentQuestionIndex > 0){
+            currentQuestionIndex--;
+            document.getElementById('popup-content').innerHTML = createquiz();
+        }
+    } else {
+        if (currentPopupIndex == 1){
+            currentPopupIndex = bugData.length - 1;
+        } else {
+            currentPopupIndex--;
+        }
+        showpopup(currentPopupIndex);
     }
+    
 }
-
-function updateProgress()
-{
-    const progressBar = document.getElementById('progressBar');
-    const progress = (currentQuest / totalQuest) * 100;
-    progressBar.style.width = '${progress}%';
-}
-*/
 
 function checkAnswer(selectedOption, correctOption) {
     // Implement logic to check the selected answer
@@ -193,6 +189,31 @@ function closezoom()
     console.log("Closing zoom");
     document.getElementById('zoom-container').style.display = "none";
 }
+
+/*
+function goBack()
+{
+    if (currentQuest > 1) {
+        currentQuest--;
+        updateProgress()
+    }
+}
+
+function nextQuestion() 
+{
+    if (currentQuest < totalQuest) {
+        currentQuest++;
+        updateProgress()
+    }
+}
+
+function updateProgress()
+{
+    const progressBar = document.getElementById('progressBar');
+    const progress = (currentQuest / totalQuest) * 100;
+    progressBar.style.width = '${progress}%';
+}
+*/
 
 // function showpopup() {
 //     // Get the popup element
