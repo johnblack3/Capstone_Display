@@ -1,8 +1,7 @@
-/* @font-face {
-    font-family: fa;
-    src: url(fonts/roboto-regular.ttf);
-    font-family: Arial, sans-serif;
-} */
+@font-face {
+    font-family: andika;
+    src: url(andika.regular.ttf);
+} 
 
 body {
     margin: 0;
@@ -31,16 +30,16 @@ body {
     position: fixed; /* Not sure if this is right */
     width: 40px;
     height: 40px;
-    background-color: red;
+    background-color: #e3dcd2;
     border-radius: 50%;
-    color: white;
+    color: #d96846;
     text-align: center; /* Centers text horizontally */
     cursor: pointer;
     display: flex; /* Enables flexbox layout */
     justify-content: center; /* Centers content horizontally in the flex container */
     align-items: center; /* Centers content vertically in the flex container */
     font-size: 30px;
-    font-family: Arial;
+    font-family: andika;
 }
 
 .box {
@@ -57,12 +56,12 @@ body {
     bottom: 20px;
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #5085a5;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     font-size: 25px;
-    font-family: Arial;
+    font-family: andika;
 }
 
 .home-button{
@@ -93,7 +92,7 @@ body {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    font-family: Arial;
+    font-family: andika;
     max-height: 90%;
 }
 
